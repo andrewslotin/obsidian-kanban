@@ -238,6 +238,11 @@ export const ItemContent = Preact.memo(function ItemContent({
 
   return (
     <div className={c('item-title')}>
+      {item.data.metadata.tasks && (
+        <div className={c('item-tasks-count')}>
+          {item.data.metadata.tasks.completed}/{item.data.metadata.tasks.total}
+        </div>
+      )}
       <MarkdownDomRenderer
         className={c('item-markdown')}
         dom={item.data.dom}
